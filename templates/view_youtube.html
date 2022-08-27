@@ -1,0 +1,135 @@
+{% extends "base-vue.html" %} 
+{% block html_tag_attributes%}lang="en"{%endblock%} 
+{% block content %}
+<noscript>
+  <strong>Please enable JavaScript to continue.</strong>
+</noscript>
+
+<input id="date-time" style="display: none" : type="text" value="0" />
+<script>
+  // Function to format 1 in 01
+
+  // Display the date and time on the screen using div#date-time
+  document.getElementById("date-time").innerHTML = 0;
+</script>
+<div class="container_header">
+  <div class="modal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Modal title</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <p id="value_to_change">Modal body text goes here.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container_title_principal">
+    <div class="container_img" onmousemove="return_menu()">
+      <img
+        src="https://cdn-icons-png.flaticon.com/512/263/263085.png"
+        alt="btn_return"
+        id="return"
+      />
+      <h1>Menú principal</h1>
+    </div>
+
+    <h1>vista para youtube</h1>
+  </div>
+</div>
+
+{% if match_list != 'None'  %}
+
+<div class="card">
+  {% for i in match_list %}
+  <li class="list-group-item" style="width:46vw;">
+    <iframe width="100%" 
+        height="500" 
+        src="https://www.youtube.com/embed/{{i}}">
+    </iframe>
+  </li>
+  {% endfor %}
+</div>
+{% endif %}
+
+<script src="../static/view_youtube.js"></script>
+
+<style scoped>
+  html {
+    scroll-behavior: smooth;
+  }
+  @import url("https://fonts.googleapis.com/css2?family=Gentium+Book+Basic&family=Roboto:wght@100&display=swap");
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: content-box;
+  }
+  .card{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction:row;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+  }
+
+  .container_header {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    background-color: aliceblue;
+  }
+  .container_header .container_title_principal {
+    font-family: "Gentium Book Basic", serif;
+    font-family: "Roboto", sans-serif;
+  }
+
+  .list-group-item:hover {
+    background-color: black;
+    color: white;
+  }
+
+  .container_img {
+    position: absolute;
+    z-index: 2;
+
+    top: 0;
+    right: 0%;
+    margin: 20px;
+  }
+
+  .container_title_principal .container_img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    width: 90px;
+    border-radius: 10px;
+  }
+  .container_title_principal .container_img h1 {
+    font-size: small;
+    font-weight: bold;
+  }
+
+  .container_img img {
+    width: 50px;
+  }
+</style>
+{% endblock %}

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gentium+Book+Basic&family=Roboto:wght@100&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <input id="date-time" style="display: none" : type="text" value="0" />
+
+    <div class="container_header">
+      <div class="container_title_principal">
+        <div class="container_img" onmousemove="return_menu()">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/263/263085.png"
+            alt="btn_return"
+            id="return"
+          />
+          <h1>Menú principal</h1>
+        </div>
+
+        <h1>Resultados de la busqueda</h1>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        Para ingresar a una página debes posicionar el puntero del mouse sobre
+        una URL
+      </div>
+      <ul class="list-group list-group-flush">
+        {% for index, i in match_list %}
+        <li
+          class="list-group-item"
+          onmousemove="prueba(this)"
+          id="{{index}}"
+          value="{{i}}"
+        >
+          {{i}}
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+
+   
+
+    <script>
+      document.getElementById("date-time").innerHTML = 0;
+    </script>
+
+    <script src="../static/files.js"></script>
+  </body>
+
+  <style scoped>
+    html {
+      scroll-behavior: smooth;
+    }
+    @import url("https://fonts.googleapis.com/css2?family=Gentium+Book+Basic&family=Roboto:wght@100&display=swap");
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: content-box;
+    }
+
+    .container_header {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      flex-direction: column;
+      width: 100%;
+      height: 100vh;
+      background-color: aliceblue;
+    }
+    .container_header .container_title_principal {
+      font-family: "Gentium Book Basic", serif;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .list-group-item:hover {
+      background-color: black;
+      color: white;
+    }
+
+    .container_img {
+      position: absolute;
+      z-index: 2;
+
+      top: 0;
+      right: 0%;
+      margin: 20px;
+    }
+
+    .container_title_principal .container_img {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background-color: rgb(255, 255, 255);
+      width: 90px;
+      border-radius: 10px;
+    }
+    .container_title_principal .container_img h1 {
+      font-size: small;
+      font-weight: bold;
+    }
+
+    .container_img img {
+      width: 50px;
+    }
+  </style>
+</html>
