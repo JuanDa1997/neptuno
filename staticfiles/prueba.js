@@ -1,8 +1,8 @@
 "Use strict";
 
-window.addEventListener("load", (event) => {
-  location.href = "http://127.0.0.1:8000/#body";
-});
+// window.addEventListener("load", (event) => {
+//   location.href = "http://127.0.0.1:8000/#body";
+// });
 
 const test = (event) => {
   const get_out = event.id;
