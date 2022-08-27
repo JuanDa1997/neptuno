@@ -14,6 +14,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
+
 from . import views
 
 urlpatterns = [
@@ -21,4 +24,4 @@ urlpatterns = [
     path("trigger_onclick", views.list_url.trigger_onclick),
     path("view_youtube", views.list_url.view_youtube),
     path("view_list", views.list_url.view_list_of_files),
-]
+]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
