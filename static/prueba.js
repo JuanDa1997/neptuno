@@ -33,12 +33,12 @@ const validate_elemente_where_am_i = (get_element) => {
   const go_to = get_element.id;
   switch (go_to) {
     case "google":
-      location.href = "http://127.0.0.1:8000/trigger_onclick";
+      location.href = "http://54.185.79.64:8000/trigger_onclick";
 
       break;
 
     case "youtube":
-      location.href = "http://127.0.0.1:8000/view_youtube";
+      location.href = "http://54.185.79.64:8000/view_youtube";
 
       break;
 
@@ -48,7 +48,7 @@ const validate_elemente_where_am_i = (get_element) => {
       break;
 
     case "files":
-      location.href = "http://127.0.0.1:8000/view_list";
+      location.href = "http://54.185.79.64:8000/view_list";
 
       break;
 

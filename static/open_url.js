@@ -2,6 +2,7 @@
 //SI SE MUEVE A OTRO ELEMENTO DEL DOM
 //el addeventlistener externo se activa
 
+
 let iterator = 0;
 let validator = 0;
 
@@ -13,9 +14,10 @@ const prueba = (event) => {
   }
 };
 
-const return_menu = () => {
-  location.href = "http://127.0.0.1:8000/#body";
-};
+const return_menu = () =>{
+  location.href = "http://54.185.79.64:8000/#body";
+
+}
 
 //valido si el valor númerico del doom, corresponde
 //al valor estático que le paso por variable
@@ -33,10 +35,8 @@ const listening = (event) => {
   setTimeout(() => {
     if (state == iterator && value_touch != not_contains) {
       if (id_div >= 0 && id_div != "") {
-        const path_file =
-          "C:/Users/Juan David Ruiz/OneDrive/Desktop/" + value_touch;
-
-        window.open(path_file);
+        console.log("ir a: " + value_touch);
+        
       }
     }
     //si los valores en x tiempo no coincide significa que el stado cambió
@@ -45,24 +45,5 @@ const listening = (event) => {
 
 addEventListener("mousemove", listening);
 
+//////////////////////////////////////////////////////////////////////
 
-function readSingleFile(e) {
-  var file = e.target.files[0];
-  if (!file) {
-    return;
-  }
-  var reader = new FileReader();
-  reader.onload = function (e) {
-    var contents = e.target.result;
-    // Display file content
-    displayContents(contents);
-  };
-  reader.readAsText(file);
-}
-
-function displayContents(contents) {
-  var element = document.getElementById("file-content");
-  element.innerHTML = contents;
-}
-
-document.getElementById('file-input').addEventListener('change', readSingleFile, false);
